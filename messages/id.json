@@ -1,0 +1,12 @@
+{
+  "LocaleLayout": {
+    "title": "contoh next-intl",
+    "description": "Ini adalah contoh penggunaan next-intl di direktori `app`."
+  },
+  "NotFound": {
+    "title": "Halaman ini tidak ditemukan (404)"
+  },
+  "LocaleSwitcher": {
+    "switchLocale": "Ubah ke {locale}"
+  }
+}
