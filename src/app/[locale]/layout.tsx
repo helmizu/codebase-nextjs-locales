@@ -12,6 +12,8 @@ import { NextIntlProvider } from '@/providers/next-intl/provider';
 import Providers from '../providers';
 import { geistMono, geistSans } from '../fonts';
 import "../globals.css";
+import NextAuthProvider from '@/providers/next-auth/provider';
+import { getSession } from '@/helpers/auth';
 
 type Props = {
   children: ReactNode;
@@ -40,15 +42,18 @@ export async function generateMetadata({
 
 export default async function LocaleLayout({ children, params }: Props) {
   const locale = (await params).locale
+  const session = await getSession();
   return (
     <html lang={locale}>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <NextIntlProvider locale={locale}>
-          <Providers>
-            {children}
-          </Providers>
+          <NextAuthProvider session={session}>
+            <Providers>
+              {children}
+            </Providers>
+          </NextAuthProvider>
         </NextIntlProvider>
       </body>
     </html>

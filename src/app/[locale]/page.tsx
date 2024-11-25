@@ -22,6 +22,11 @@ export default function Home() {
               Playground
             </Button>
           </Link>
+          <Link href={{ pathname: '/signin' }}>
+            <Button variant="outline">
+              Sign In
+            </Button>
+          </Link>
         </div>
       </main>
     </div>
